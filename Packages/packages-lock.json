@@ -1,5 +1,14 @@
 {
   "dependencies": {
+    "com.gabrielbigardi.spriteanimator": {
+      "version": "https://github.com/GabrielBigardi/Unity-2D-Sprite-Animator.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.editorcoroutines": "1.0.0"
+      },
+      "hash": "755143081ab169070ccebda7f3ce65abf571f14d"
+    },
     "com.unity.2d.animation": {
       "version": "9.1.2",
       "depth": 1,
@@ -119,6 +128,13 @@
         "com.unity.burst": "1.6.6",
         "com.unity.test-framework": "1.1.31"
       },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.editorcoroutines": {
+      "version": "1.0.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.ext.nunit": {
