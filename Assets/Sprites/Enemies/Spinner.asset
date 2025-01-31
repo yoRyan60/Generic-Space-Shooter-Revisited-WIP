@@ -22,12 +22,13 @@ MonoBehaviour:
     - {fileID: -1274397946, guid: 3e790ac97bd173045b63da5f17b950ba, type: 3}
     SpriteAnimationType: 0
   - Name: Prepare
-    FPS: 12
+    FPS: 8
     Frames:
     - {fileID: 1466420868, guid: 3e790ac97bd173045b63da5f17b950ba, type: 3}
-    - {fileID: -1625185568, guid: 3e790ac97bd173045b63da5f17b950ba, type: 3}
     - {fileID: -583932547, guid: 3e790ac97bd173045b63da5f17b950ba, type: 3}
     - {fileID: 416268747, guid: 3e790ac97bd173045b63da5f17b950ba, type: 3}
+    - {fileID: -2110520353, guid: 3e790ac97bd173045b63da5f17b950ba, type: 3}
+    - {fileID: 1245907436, guid: 3e790ac97bd173045b63da5f17b950ba, type: 3}
     SpriteAnimationType: 1
   - Name: Attack
     FPS: 12
