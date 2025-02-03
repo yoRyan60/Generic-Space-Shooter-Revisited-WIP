@@ -9,6 +9,8 @@ TagManager:
   - RightBoundary
   - EnemyDespawnZone
   - EnemyAttackRange
+  - EnemyHitbox
+  - PlayerBulletHitbox
   layers:
   - Default
   - TransparentFX

@@ -6,13 +6,14 @@ public class InAttackRangeCheck : MonoBehaviour
 {
     public GameObject PlayerTarget { get; set; }
     private Enemy enemy;
-
+    private Collider2D enemyHitbox;
     private bool isWindingUp = false; //to prevent the animation from triggering if the player re-enters the attack range.
 
     private void Awake(){
         PlayerTarget = GameObject.FindGameObjectWithTag("Player");
 
         enemy = GetComponentInParent<Enemy>();
+        enemyHitbox = GetComponentInChildren<Collider2D>();
     }
     private void OnTriggerEnter2D(Collider2D collision){
         if(collision.gameObject == PlayerTarget && !isWindingUp){
@@ -29,7 +30,14 @@ public class InAttackRangeCheck : MonoBehaviour
         enemy.SetInAttackRange(true);
     }
 
+    IEnumerator EnableAttackRange(){
+        yield return new WaitForSeconds(0.8f);
+        enemyHitbox.enabled = true;
+    }
+
     private void OnEnable(){
         isWindingUp = false;
+        enemyHitbox.enabled = false;
+        StartCoroutine(EnableAttackRange());
     }
 }

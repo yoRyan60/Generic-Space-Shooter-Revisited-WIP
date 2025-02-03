@@ -7,9 +7,6 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private Enemy enemyPrefab;
     private IObjectPool<Enemy> objectPool;
-
-    private Vector3 spawnPosition;
-
     //throws an exception if we try to return an existing item that's already in the pool.
     [SerializeField] private bool collectionCheck = true;
     [SerializeField] private int defaultCapacity = 5;
@@ -77,11 +74,11 @@ public class EnemySpawner : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D collision){
-        if (collision.gameObject.name == "LeftBoundary") {
+        if (collision.gameObject.CompareTag("LeftBoundary")) {
             strafeLeft = false;
             strafeRight = true;
         }
-        if (collision.gameObject.name == "RightBoundary") {
+        if (collision.gameObject.CompareTag("RightBoundary")) {
             strafeLeft = true;
             strafeRight = false;
         }

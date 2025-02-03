@@ -8,20 +8,17 @@ public class Enemy : MonoBehaviour, ITriggerCheckable
 {   
     [SerializeField] Rigidbody2D RB;
     [SerializeField] public float enemyMovementSpeed = 2f;
-    //[SerializeField]  bool isAlive = true;
 
-    private IObjectPool<Enemy> objectPool;
+    //Retrieve object pool methods for handling spawning and despawning.
+    public IObjectPool<Enemy> objectPool;
     public IObjectPool<Enemy> ObjectPool { set => objectPool = value; }
-
-    //[SerializeField] Collider2D enemyCollider;
-    [SerializeField] bool strafeLeft = false;
-    [SerializeField] bool strafeRight = false;
+    //[SerializeField] bool strafeLeft = false;
+    //[SerializeField] bool strafeRight = false;
     [SerializeField] public bool move = false;
-
     [SerializeField] private float despawnTimer = 3f;
-
     [SerializeField] public SpriteAnimator enemyAnimator; //Using the custom sprite animator.
 
+    //State Machine for the enemy.
     public EnemyStateMachine StateMachine { get; set; }
     public EnemyIdleState IdleState { get; set; }
     public EnemyAlertState  AlertState { get; set; }
@@ -52,7 +49,7 @@ public class Enemy : MonoBehaviour, ITriggerCheckable
             if(despawnTimer <= 0){
                 objectPool.Release(this);
                 StateMachine.ChangeState(IdleState);
-                setTimeUntilDespawn();
+                ResetEnemy();
             }
         }
         if(StateMachine.CurrentEnemyState == AttackState){
@@ -60,7 +57,7 @@ public class Enemy : MonoBehaviour, ITriggerCheckable
             if(despawnTimer <= 0){
                 objectPool.Release(this);
                 StateMachine.ChangeState(IdleState);
-                setTimeUntilDespawn();
+                ResetEnemy();
             }
         }
         /*if(isAlive){
@@ -72,20 +69,7 @@ public class Enemy : MonoBehaviour, ITriggerCheckable
         StateMachine.CurrentEnemyState.PhysicsUpdate();
     }
 
-   /* void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.name == "LeftBoundary") {
-            strafeLeft = false;
-            strafeRight = true;
-            Debug.Log("Collided with Left Boundary!");
-        }
-        if (collision.gameObject.name == "RightBoundary") {
-            strafeLeft = true;
-            strafeRight = false;
-            Debug.Log("Collided with Right Boundary!");
-        }
-    }*/
-
-    void StrafeChance(){
+    /*void StrafeChance(){
         float strafeChance = Random.Range(0.0f, 1.0f);
         if(strafeChance > 0.0f && strafeChance <= 0.5f){
             strafeLeft = true;
@@ -95,7 +79,7 @@ public class Enemy : MonoBehaviour, ITriggerCheckable
             strafeLeft = false;
             strafeRight = true;
         }
-    }
+    }*/
     
     /*void OnTriggerEnter2D(Collider2D collision){
         //Debug.Log("Attack zone entered.");
@@ -141,10 +125,11 @@ public class Enemy : MonoBehaviour, ITriggerCheckable
         enemyAnimator.Play("Idle");
         //isAlive = true;
         move = true;
-        strafeLeft = false;
-        strafeRight = false;
+        //strafeLeft = false;
+        //strafeRight = false;
         IsInAttackRange = false;
         enemyMovementSpeed = 2.5f;
+        despawnTimer = 3f;
     }
 
     public void AlertedEnemy() {
@@ -158,10 +143,6 @@ public class Enemy : MonoBehaviour, ITriggerCheckable
     public void SetInAttackRange(bool isInAttackRange)
     {
         IsInAttackRange = isInAttackRange;
-    }
-
-    private void setTimeUntilDespawn(){
-        despawnTimer = 3f;
     }
 
     IEnumerator WindUp() {

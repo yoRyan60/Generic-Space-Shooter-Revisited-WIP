@@ -7,8 +7,9 @@ public class UserInput : MonoBehaviour
     public static PlayerInput PlayerInput; 
 
     public Vector2 MoveInput { get; private set; }
+    public bool FireInput { get; private set; }
 
-    InputAction moveAction;
+    InputAction moveAction, fireAction;
 
     void Awake() {
         if(Instance != null && Instance != this) Destroy(this);
@@ -25,9 +26,11 @@ public class UserInput : MonoBehaviour
     // Set up the inputs
     void SetupInputActions() {
         moveAction = PlayerInput.actions["Move"];
+        fireAction = PlayerInput.actions["Fire"];
     }
 
     void UpdateInputActions() {
         MoveInput = moveAction.ReadValue<Vector2>();
+        FireInput = fireAction.WasPressedThisFrame();
     }
 }

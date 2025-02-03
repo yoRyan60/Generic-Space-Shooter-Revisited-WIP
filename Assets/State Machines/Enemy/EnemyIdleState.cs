@@ -17,7 +17,6 @@ public class EnemyIdleState : EnemyState
     {
         base.EnterState();
         enemy.ResetEnemy();
-        Debug.Log("Idle State Active");
     }
 
     public override void ExitState()
