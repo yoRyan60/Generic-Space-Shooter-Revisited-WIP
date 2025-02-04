@@ -27,14 +27,6 @@ public class PlayerBullet : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision){
-        if(collision.gameObject.CompareTag("EnemyHitbox")){
-            objectPool.Release(this);
-            ResetBullet();
-            Debug.Log("Hit an enemy!");
-        }
-    }
-
     public void ResetBullet(){
         despawnTime = 1f;
     }

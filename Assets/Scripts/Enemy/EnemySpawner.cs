@@ -34,10 +34,6 @@ public class EnemySpawner : MonoBehaviour
                 return;
             }
         }
-      //for (int i = 0; i < defaultCapacity; i++){
-      //    Enemy enemy = objectPool.Get();
-      //    objectPool.Release(enemy);
-      //}
     }
 
 

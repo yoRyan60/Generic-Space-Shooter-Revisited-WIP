@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1305146972158155720
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -9121208843396879365, guid: f9fad177bfbeeb740b500239075b4348, type: 3}
+      propertyPath: _playAutomatically
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -9121208843396879365, guid: f9fad177bfbeeb740b500239075b4348, type: 3}
+      propertyPath: _spriteAnimationObject
+      value: 
+      objectReference: {fileID: 11400000, guid: d66938c0375ef9447857a910f5299c68, type: 2}
+    - target: {fileID: 2844840480923839678, guid: f9fad177bfbeeb740b500239075b4348, type: 3}
+      propertyPath: m_Name
+      value: PlayerLaserHitbox
+      objectReference: {fileID: 0}
+    - target: {fileID: 3888171630310082746, guid: f9fad177bfbeeb740b500239075b4348, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -567671677, guid: 63f74e91a4700be42b909e193fa2b5c5, type: 3}
+    - target: {fileID: 5799162794621907070, guid: f9fad177bfbeeb740b500239075b4348, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.2535913
+      objectReference: {fileID: 0}
+    - target: {fileID: 5799162794621907070, guid: f9fad177bfbeeb740b500239075b4348, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 5799162794621907070, guid: f9fad177bfbeeb740b500239075b4348, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.571253
+      objectReference: {fileID: 0}
+    - target: {fileID: 5799162794621907070, guid: f9fad177bfbeeb740b500239075b4348, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5799162794621907070, guid: f9fad177bfbeeb740b500239075b4348, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5799162794621907070, guid: f9fad177bfbeeb740b500239075b4348, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5799162794621907070, guid: f9fad177bfbeeb740b500239075b4348, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5799162794621907070, guid: f9fad177bfbeeb740b500239075b4348, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5799162794621907070, guid: f9fad177bfbeeb740b500239075b4348, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5799162794621907070, guid: f9fad177bfbeeb740b500239075b4348, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563541003701173228, guid: f9fad177bfbeeb740b500239075b4348, type: 3}
+      propertyPath: m_Name
+      value: PlayerLaser
+      objectReference: {fileID: 0}
+    - target: {fileID: 8140330783104810216, guid: f9fad177bfbeeb740b500239075b4348, type: 3}
+      propertyPath: playerBullet
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3732143290751409751, guid: f9fad177bfbeeb740b500239075b4348, type: 3}
+    - {fileID: 1581907935494064696, guid: f9fad177bfbeeb740b500239075b4348, type: 3}
+    - {fileID: 8140330783104810216, guid: f9fad177bfbeeb740b500239075b4348, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2844840480923839678, guid: f9fad177bfbeeb740b500239075b4348, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7456927910489153151}
+  m_SourcePrefab: {fileID: 100100000, guid: f9fad177bfbeeb740b500239075b4348, type: 3}
+--- !u!1 &3847823515691792246 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2844840480923839678, guid: f9fad177bfbeeb740b500239075b4348, type: 3}
+  m_PrefabInstance: {fileID: 1305146972158155720}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &7456927910489153151
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3847823515691792246}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.15}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.4, y: 3.8}
+  m_EdgeRadius: 0

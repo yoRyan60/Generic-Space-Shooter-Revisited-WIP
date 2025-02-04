@@ -9,7 +9,7 @@ public class PlayerBulletSpawner : MonoBehaviour
     private IObjectPool<PlayerBullet> objectPool;
     [SerializeField] private PlayerBullet playerBulletPrefab;
     [SerializeField] public SpriteAnimator bulletAnimator; //Using the custom sprite animator.
-    //throws an exception if we try to return an existing item that's already in the pool.
+
     [SerializeField] private bool collectionCheck = true;
     [SerializeField] private int defaultCapacity = 3;
     [SerializeField] private int maxSize = 6;

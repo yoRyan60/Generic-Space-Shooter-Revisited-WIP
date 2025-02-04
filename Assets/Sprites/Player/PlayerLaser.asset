@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a77fafcc6bd2ee94ebe9ac341b986e7a, type: 3}
+  m_Name: PlayerLaser
+  m_EditorClassIdentifier: 
+  SpriteAnimations:
+  - Name: Charging
+    FPS: 12
+    Frames:
+    - {fileID: -1782678319, guid: 63f74e91a4700be42b909e193fa2b5c5, type: 3}
+    - {fileID: -544333057, guid: 63f74e91a4700be42b909e193fa2b5c5, type: 3}
+    - {fileID: -1289556361, guid: 63f74e91a4700be42b909e193fa2b5c5, type: 3}
+    - {fileID: 676777160, guid: 63f74e91a4700be42b909e193fa2b5c5, type: 3}
+    SpriteAnimationType: 0
+  - Name: ReleasingCharge
+    FPS: 12
+    Frames:
+    - {fileID: 1413823831, guid: 63f74e91a4700be42b909e193fa2b5c5, type: 3}
+    - {fileID: -887959538, guid: 63f74e91a4700be42b909e193fa2b5c5, type: 3}
+    - {fileID: -567671677, guid: 63f74e91a4700be42b909e193fa2b5c5, type: 3}
+    SpriteAnimationType: 1
+  - Name: Active
+    FPS: 12
+    Frames:
+    - {fileID: -567671677, guid: 63f74e91a4700be42b909e193fa2b5c5, type: 3}
+    - {fileID: -1920983816, guid: 63f74e91a4700be42b909e193fa2b5c5, type: 3}
+    SpriteAnimationType: 0
+  - Name: Inactive
+    FPS: 12
+    Frames:
+    - {fileID: -567671677, guid: 63f74e91a4700be42b909e193fa2b5c5, type: 3}
+    - {fileID: -1920983816, guid: 63f74e91a4700be42b909e193fa2b5c5, type: 3}
+    - {fileID: -2058737450, guid: 63f74e91a4700be42b909e193fa2b5c5, type: 3}
+    - {fileID: 337463565, guid: 63f74e91a4700be42b909e193fa2b5c5, type: 3}
+    - {fileID: 600643740, guid: 63f74e91a4700be42b909e193fa2b5c5, type: 3}
+    - {fileID: -617509839, guid: 63f74e91a4700be42b909e193fa2b5c5, type: 3}
+    - {fileID: -160448154, guid: 63f74e91a4700be42b909e193fa2b5c5, type: 3}
+    - {fileID: 1221208105, guid: 63f74e91a4700be42b909e193fa2b5c5, type: 3}
+    - {fileID: 1786430292, guid: 63f74e91a4700be42b909e193fa2b5c5, type: 3}
+    SpriteAnimationType: 1
