@@ -6,7 +6,7 @@ using UnityEngine.Pool;
 public class InHitboxCheck : MonoBehaviour
 {
     public GameObject PlayerTarget { get; set; }
-    [SerializeField] private Enemy enemy;
+    [SerializeField] private Enemy_Spinner enemy;
 
     private void Awake(){
         PlayerTarget = GameObject.FindGameObjectWithTag("Player");

@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyIdleState : EnemyState
+public class Enemy_SpinnerIdleState : Enemy_SpinnerState
 {
-    public EnemyIdleState(Enemy enemy, EnemyStateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
+    public Enemy_SpinnerIdleState(Enemy_Spinner enemy, Enemy_SpinnerStateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
     {
     }
 
-    public override void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType)
+    /*public override void AnimationTriggerEvent(Enemy_Spinner.AnimationTriggerType triggerType)
     {
         base.AnimationTriggerEvent(triggerType);
-    }
+    }*/
 
     public override void EnterState()
     {

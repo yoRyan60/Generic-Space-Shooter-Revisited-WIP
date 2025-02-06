@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class EnemySpawner : MonoBehaviour
+public class EnemySpawner_Pinpoint : MonoBehaviour
 {
-    [SerializeField] private Enemy enemyPrefab;
-    private IObjectPool<Enemy> objectPool;
+    #region Object Pool, prefab and parameters such as timers per spawn, capacity
+    [SerializeField] private Enemy_Pinpoint enemyPrefab;
+    private IObjectPool<Enemy_Pinpoint> objectPool;
     //throws an exception if we try to return an existing item that's already in the pool.
     [SerializeField] private bool collectionCheck = true;
     [SerializeField] private int defaultCapacity = 5;
@@ -14,30 +15,34 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float timeUntilSpawn;
     [SerializeField] float minimumSpawnTime;
     [SerializeField] float maximumSpawnTime;
-
+    #endregion
+    
+    #region Spawner movement parameters like movement speed, strafeLeft and strafeRight
     float spawnerMovementSpeed = 3f;
     bool strafeLeft = false;
     bool strafeRight = false;
+    #endregion
 
-    void Start(){
+
+    // Start is called before the first frame update
+    void Start()
+    {
         StrafeChance();
     }
 
     void Awake(){
         SetTimeUntilSpawn();
-        objectPool = new ObjectPool<Enemy>(CreateEnemy, OnGetFromPool, OnReleaseFromPool, 
+        objectPool = new ObjectPool<Enemy_Pinpoint>(CreateEnemy, OnGetFromPool, OnReleaseFromPool, 
         OnDestroyPooledObject, collectionCheck, defaultCapacity, maxSize);
         for (int i = 0; i < defaultCapacity; i++){
-            Enemy enemy = CreateEnemy();
+            Enemy_Pinpoint enemy = CreateEnemy();
             objectPool.Release(enemy);
             if (enemy == null){
                 return;
             }
         }
     }
-
-
-    // Update is called once per frame
+       // Update is called once per frame
     void Update()
     {
         timeUntilSpawn -= Time.deltaTime;
@@ -85,23 +90,23 @@ public class EnemySpawner : MonoBehaviour
     }
 
     
-    private Enemy CreateEnemy(){
-        transform.position = GameObject.Find("EnemySpawner").transform.position;
-        Enemy enemyInstance = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+    private Enemy_Pinpoint CreateEnemy(){
+        transform.position = GameObject.FindGameObjectWithTag("EnemySpawner(Pinpoint)").transform.position;
+        Enemy_Pinpoint enemyInstance = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
         enemyInstance.ObjectPool = objectPool;
         return enemyInstance;
     }
 
-    private void OnGetFromPool(Enemy pooledObject){
-        pooledObject.transform.position = GameObject.Find("EnemySpawner").transform.position; //Sets the pooled object to the current position of the spawner.
+    private void OnGetFromPool(Enemy_Pinpoint pooledObject){
+        pooledObject.transform.position = GameObject.FindGameObjectWithTag("EnemySpawner(Pinpoint)").transform.position; //Sets the pooled object to the current position of the spawner.
         pooledObject?.gameObject.SetActive(true);
     }
 
-    private void OnReleaseFromPool(Enemy pooledObject){
+    private void OnReleaseFromPool(Enemy_Pinpoint pooledObject){
         pooledObject?.gameObject.SetActive(false);
     }
 
-    private void OnDestroyPooledObject(Enemy pooledObject){
+    private void OnDestroyPooledObject(Enemy_Pinpoint pooledObject){
         Destroy(pooledObject.gameObject);
     }
 }

@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class EnemyAttackState : EnemyState
+public class Enemy_SpinnerAttackState : Enemy_SpinnerState
 {   
     private GameObject playerPosition;
     private Vector3 targetPosition;
     private Vector3 currentDirection;
 
-    public EnemyAttackState(Enemy enemy, EnemyStateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
+    public Enemy_SpinnerAttackState(Enemy_Spinner enemy, Enemy_SpinnerStateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
     {
         playerPosition = GameObject.FindGameObjectWithTag("Player");
     }
 
-    public override void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType)
+    /*public override void AnimationTriggerEvent(Enemy_Spinner.AnimationTriggerType triggerType)
     {
         base.AnimationTriggerEvent(triggerType);
-    }
+    }*/
 
     public override void EnterState()
     {
@@ -27,7 +27,7 @@ public class EnemyAttackState : EnemyState
         if(playerPosition != null){
             currentDirection = (playerPosition.transform.position - enemy.transform.position).normalized;
         }
-        enemy.AttackingEnemy();
+        enemy.Attack();
     }
 
     public override void ExitState()

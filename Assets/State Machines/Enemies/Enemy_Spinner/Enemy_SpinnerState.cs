@@ -4,14 +4,14 @@ using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using GabrielBigardi.SpriteAnimator;
 
-public class EnemyState
+public class Enemy_SpinnerState
 {
-    protected Enemy enemy;
-    protected EnemyStateMachine enemyStateMachine;
+    protected Enemy_Spinner enemy;
+    protected Enemy_SpinnerStateMachine enemyStateMachine;
 
     public SpriteAnimator enemyAnimator; //Using the custom sprite animator.
 
-    public EnemyState(Enemy enemy, EnemyStateMachine enemyStateMachine){
+    public Enemy_SpinnerState(Enemy_Spinner enemy, Enemy_SpinnerStateMachine enemyStateMachine){
         this.enemy = enemy;
         this.enemyStateMachine = enemyStateMachine;
     }
@@ -32,9 +32,9 @@ public class EnemyState
 
     }
 
-    public virtual void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType){
+    /*public virtual void AnimationTriggerEvent(Enemy_Spinner.AnimationTriggerType triggerType){
 
-    }
+    }*/
 
     // Start is called before the first frame update
     void Start()

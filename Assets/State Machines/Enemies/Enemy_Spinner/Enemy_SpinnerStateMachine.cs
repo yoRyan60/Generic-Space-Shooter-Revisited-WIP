@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyStateMachine
+public class Enemy_SpinnerStateMachine
 {
 
-    public EnemyState CurrentEnemyState {  get; set; }
+    public Enemy_SpinnerState CurrentEnemyState {  get; set; }
 
-    public void Initialize(EnemyState startingState){
+    public void Initialize(Enemy_SpinnerState startingState){
         CurrentEnemyState = startingState;
         CurrentEnemyState.EnterState();
     }
 
-    public void ChangeState(EnemyState newState){
+    public void ChangeState(Enemy_SpinnerState newState){
         CurrentEnemyState.ExitState();
         CurrentEnemyState = newState;
         CurrentEnemyState.EnterState();

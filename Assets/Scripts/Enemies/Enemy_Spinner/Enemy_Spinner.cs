@@ -1,36 +1,38 @@
 using System.Collections;
 using GabrielBigardi.SpriteAnimator;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class Enemy : MonoBehaviour, ITriggerCheckable
+public class Enemy_Spinner: MonoBehaviour, ITriggerCheckable
 {   
-    [SerializeField] Rigidbody2D RB;
+    #region Object Pool
+    public IObjectPool<Enemy_Spinner> objectPool;
+    public IObjectPool<Enemy_Spinner> ObjectPool { set => objectPool = value; }
+    #endregion
 
-    //Retrieve object pool methods for handling spawning and despawning.
-    public IObjectPool<Enemy> objectPool;
-    public IObjectPool<Enemy> ObjectPool { set => objectPool = value; }
-
+    #region Enemy parameters and SpriteAnimator
+    public SpriteAnimator enemyAnimator; //Using the custom sprite animator.
     [SerializeField] public bool move = false;
     [SerializeField] public float enemyMovementSpeed = 2f;
     [SerializeField] private float despawnTimer = 3f;
-    [SerializeField] public SpriteAnimator enemyAnimator; //Using the custom sprite animator.
+    #endregion
+    
+    #region State Machine
+    public Enemy_SpinnerStateMachine StateMachine { get; set; }
+    public Enemy_SpinnerIdleState IdleState { get; set; }
+    public Enemy_SpinnerAlertState  AlertState { get; set; }
+    public Enemy_SpinnerAttackState AttackState { get; set; }
+    #endregion
 
-    //State Machine for the enemy.
-    public EnemyStateMachine StateMachine { get; set; }
-    public EnemyIdleState IdleState { get; set; }
-    public EnemyAlertState  AlertState { get; set; }
-    public EnemyAttackState AttackState { get; set; }
     public bool IsInAttackRange { get; set; }
 
     private void Awake(){
 
-        StateMachine = new EnemyStateMachine();
+        StateMachine = new Enemy_SpinnerStateMachine();
 
-        IdleState = new EnemyIdleState(this, StateMachine);
-        AlertState = new EnemyAlertState(this, StateMachine);
-        AttackState = new EnemyAttackState(this, StateMachine);
+        IdleState = new Enemy_SpinnerIdleState(this, StateMachine);
+        AlertState = new Enemy_SpinnerAlertState(this, StateMachine);
+        AttackState = new Enemy_SpinnerAttackState(this, StateMachine);
     }
 
     // Start is called before the first frame update
@@ -72,12 +74,16 @@ public class Enemy : MonoBehaviour, ITriggerCheckable
         enemyMovementSpeed = 2.5f;
         despawnTimer = 3f;
     }
-
-    public void AlertedEnemy() {
+    
+    IEnumerator WindUp() {
+        enemyAnimator.Play("Prepare");
+        yield return new WaitForSeconds(1f);
+    }
+    public void Alerted() {
         StartCoroutine(WindUp());
     }
 
-    public void AttackingEnemy(){
+    public void Attack(){
         enemyAnimator.Play("Attack");
     }
 
@@ -86,14 +92,12 @@ public class Enemy : MonoBehaviour, ITriggerCheckable
         IsInAttackRange = isInAttackRange;
     }
 
-    IEnumerator WindUp() {
-        enemyAnimator.Play("Prepare");
-        yield return new WaitForSeconds(1f);
+    void OnEnable(){
+        move = true;
     }
 
-
-    public enum AnimationTriggerType{
+    /*public enum AnimationTriggerType{
         DetectedPlayer,
         InitiateAttack
-    }
+    }*/
 }

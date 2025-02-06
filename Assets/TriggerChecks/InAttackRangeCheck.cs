@@ -5,14 +5,14 @@ using UnityEngine;
 public class InAttackRangeCheck : MonoBehaviour
 {
     public GameObject PlayerTarget { get; set; }
-    private Enemy enemy;
+    private Enemy_Spinner enemy;
     private Collider2D enemyHitbox;
     private bool isWindingUp = false; //to prevent the animation from triggering if the player re-enters the attack range.
 
     private void Awake(){
         PlayerTarget = GameObject.FindGameObjectWithTag("Player");
 
-        enemy = GetComponentInParent<Enemy>();
+        enemy = GetComponentInParent<Enemy_Spinner>();
         enemyHitbox = GetComponentInChildren<Collider2D>();
     }
     private void OnTriggerEnter2D(Collider2D collision){

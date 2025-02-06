@@ -11,6 +11,8 @@ TagManager:
   - EnemyAttackRange
   - EnemyHitbox
   - PlayerBulletHitbox
+  - EnemySpawner(Pinpoint)
+  - EnemySpawner(Spinner)
   layers:
   - Default
   - TransparentFX

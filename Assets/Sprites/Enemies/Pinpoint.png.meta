@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3e790ac97bd173045b63da5f17b950ba
+guid: a78548acae04fe74e8b425f21aaddb8e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,70 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Spinner_0
+      name: Pinpoint_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff64c85250e73dd4ba136c1f1b709fdb
+      internalID: -1877752736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinpoint_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d5c9c891c4e4ee4c8a5ff5395c3fd0f
+      internalID: 1261817034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinpoint_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95809494ae56da64d8086cb76ac66373
+      internalID: -747885328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinpoint_3
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f3678f701d0f394681a992778748a74
-      internalID: 1466420868
+      spriteID: c16758d91f768e5409a8f4565b37e0e0
+      internalID: 1776714720
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spinner_1
+      name: Pinpoint_4
       rect:
         serializedVersion: 2
         x: 16
@@ -145,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c74c45c4dec5ca46805ebe822500e86
-      internalID: -1625185568
+      spriteID: 4b0e4b5e4bd6f6042a91850feebbb42c
+      internalID: -494353244
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spinner_2
+      name: Pinpoint_5
       rect:
         serializedVersion: 2
         x: 32
@@ -166,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7976954fcbc58b84286213c75663eae9
-      internalID: 1225239920
+      spriteID: 08c6a86dcd969c845be6f7089b03cb32
+      internalID: 428731772
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spinner_3
+      name: Pinpoint_6
       rect:
         serializedVersion: 2
         x: 0
@@ -187,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09742e5b4c67f0749a0a00b2fc9c0814
-      internalID: -1274397946
+      spriteID: 301dd3198167abb41995ecce506702d7
+      internalID: 188533567
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spinner_4
+      name: Pinpoint_7
       rect:
         serializedVersion: 2
         x: 16
@@ -208,14 +271,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38f7992d5b877034b8ab66f909bf754d
-      internalID: -583932547
+      spriteID: e0818d835ff62e54fba98483100d80b4
+      internalID: 1049253753
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spinner_5
+      name: Pinpoint_8
       rect:
         serializedVersion: 2
         x: 32
@@ -229,14 +292,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a56f340ad30f0364fa1f993f79c74d6e
-      internalID: 416268747
+      spriteID: ea27266fb259fd94c8d4e62a57a506e8
+      internalID: -1793984732
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spinner_6
+      name: Pinpoint_9
       rect:
         serializedVersion: 2
         x: 0
@@ -250,14 +313,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ef8f0883abb26b448296d333dbf11f7
-      internalID: -2110520353
+      spriteID: ecb965de49a43dd458d01914c81a35b5
+      internalID: -1005137921
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spinner_7
+      name: Pinpoint_10
       rect:
         serializedVersion: 2
         x: 16
@@ -271,8 +334,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a89d00e2474a9b42a07605d7f04e884
-      internalID: 1245907436
+      spriteID: caff28523d8283f4297c71c2916c721b
+      internalID: -1321385372
       vertices: []
       indices: 
       edges: []
@@ -281,21 +344,24 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Spinner_0: 1466420868
-      Spinner_1: -1625185568
-      Spinner_2: 1225239920
-      Spinner_3: -1274397946
-      Spinner_4: -583932547
-      Spinner_5: 416268747
-      Spinner_6: -2110520353
-      Spinner_7: 1245907436
+      Pinpoint_0: -1877752736
+      Pinpoint_1: 1261817034
+      Pinpoint_10: -1321385372
+      Pinpoint_2: -747885328
+      Pinpoint_3: 1776714720
+      Pinpoint_4: -494353244
+      Pinpoint_5: 428731772
+      Pinpoint_6: 188533567
+      Pinpoint_7: 1049253753
+      Pinpoint_8: -1793984732
+      Pinpoint_9: -1005137921
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
