@@ -13,14 +13,16 @@ public class InPlayerBulletHitboxCheck : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision){
         if(collision.gameObject.CompareTag("EnemyHitbox")){
-            playerBullet.objectPool.Release(playerBullet);
-            playerBullet.ResetBullet();
+            if(playerBullet == null){
+                return;
+            }
+            StartCoroutine(InflictDamage());
         }
     }
+
     IEnumerator InflictDamage(){
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.01f);
         playerBullet.objectPool.Release(playerBullet);
         playerBullet.ResetBullet();
     }
-
 }

@@ -15,16 +15,18 @@ public class EnemySpawner_Spinner : MonoBehaviour
     [SerializeField] private float timeUntilSpawn;
     [SerializeField] float minimumSpawnTime;
     [SerializeField] float maximumSpawnTime;
+    [SerializeField] Vector3 spawnerPosition;
+    public Transform[] spawnPoints;
     #endregion
-    
+
     #region Spawner movement parameters like movement speed, strafeLeft and strafeRight
-    float spawnerMovementSpeed = 3f;
+    public float spawnerMovementSpeed = 3f;
     bool strafeLeft = false;
     bool strafeRight = false;
     #endregion
 
     void Start(){
-        StrafeChance();
+        transform.position = spawnerPosition;
     }
 
     void Awake(){
@@ -48,55 +50,22 @@ public class EnemySpawner_Spinner : MonoBehaviour
             objectPool.Get();
             SetTimeUntilSpawn();
         }
-        spawnerMovement();
-    }
+    } 
 
-    private void spawnerMovement(){ //Make the spawner move for dynamic spawn locations for the enemies.
-        if(strafeLeft) {
-            transform.position += new Vector3(-spawnerMovementSpeed * Time.deltaTime, 0, 0);
-        }
-        if(strafeRight) {
-            transform.position += new Vector3(spawnerMovementSpeed * Time.deltaTime, 0, 0);
-        }
-    }    
-
-    void StrafeChance(){ // similar to the enemies moving left and right, it's just that this never moves from its x-axis.
-        float strafeChance = Random.Range(0.0f, 1.0f);
-        if(strafeChance > 0.0f && strafeChance <= 0.5f){
-            strafeLeft = true;
-            strafeRight = false;
-        }
-        else if (strafeChance > 0.5f && strafeChance <= 1.0f){
-            strafeLeft = false;
-            strafeRight = true;
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D collision){
-        if (collision.gameObject.CompareTag("LeftBoundary")) {
-            strafeLeft = false;
-            strafeRight = true;
-        }
-        if (collision.gameObject.CompareTag("RightBoundary")) {
-            strafeLeft = true;
-            strafeRight = false;
-        }
-    }
-    
     private void SetTimeUntilSpawn(){
         timeUntilSpawn = Random.Range(minimumSpawnTime, maximumSpawnTime);
     }
 
     
     private Enemy_Spinner CreateEnemy(){
-        transform.position = GameObject.FindGameObjectWithTag("EnemySpawner(Spinner)").transform.position;
+        //transform.position = enemyPrefab.transform.position;
         Enemy_Spinner enemyInstance = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
         enemyInstance.ObjectPool = objectPool;
         return enemyInstance;
     }
 
     private void OnGetFromPool(Enemy_Spinner pooledObject){
-        pooledObject.transform.position = GameObject.FindGameObjectWithTag("EnemySpawner(Spinner)").transform.position; //Sets the pooled object to the current position of the spawner.
+        pooledObject.transform.position = spawnPoints[Random.Range(0, spawnPoints.Length)].position; //Sets the pooled object to the current position of the spawner.
         pooledObject?.gameObject.SetActive(true);
     }
 

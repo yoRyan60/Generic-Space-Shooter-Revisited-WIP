@@ -6,15 +6,16 @@ using UnityEngine.Pool;
 
 public class PlayerBulletSpawner : MonoBehaviour
 {
+    #region PlayerBullet prefab and parameters
     private IObjectPool<PlayerBullet> objectPool;
     [SerializeField] private PlayerBullet playerBulletPrefab;
     [SerializeField] public SpriteAnimator bulletAnimator; //Using the custom sprite animator.
-
     [SerializeField] private bool collectionCheck = true;
-    [SerializeField] private int defaultCapacity = 3;
-    [SerializeField] private int maxSize = 6;
+    [SerializeField] private int defaultCapacity = 2;
+    [SerializeField] private int maxSize = 4;
     public bool hasFired = false;
-    Player player;
+    //Player player;
+    #endregion
 
     void Start(){
         
@@ -36,16 +37,6 @@ public class PlayerBulletSpawner : MonoBehaviour
       //}
     }
 
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    void OnTriggerEnter2D(Collider2D collision){
-
-    }
     public void Shoot(){
         objectPool.Get();
         StartCoroutine(cooldownTimer());
@@ -53,7 +44,7 @@ public class PlayerBulletSpawner : MonoBehaviour
 
     IEnumerator cooldownTimer(){
         hasFired = true;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         hasFired = false;
     }
 

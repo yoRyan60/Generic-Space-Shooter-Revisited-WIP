@@ -38,3 +38,18 @@ MonoBehaviour:
     - {fileID: -1005137921, guid: a78548acae04fe74e8b425f21aaddb8e, type: 3}
     - {fileID: -1321385372, guid: a78548acae04fe74e8b425f21aaddb8e, type: 3}
     SpriteAnimationType: 0
+  - Name: Inactive
+    FPS: 12
+    Frames:
+    - {fileID: -1321385372, guid: a78548acae04fe74e8b425f21aaddb8e, type: 3}
+    - {fileID: -1005137921, guid: a78548acae04fe74e8b425f21aaddb8e, type: 3}
+    - {fileID: -1793984732, guid: a78548acae04fe74e8b425f21aaddb8e, type: 3}
+    - {fileID: 1049253753, guid: a78548acae04fe74e8b425f21aaddb8e, type: 3}
+    - {fileID: 188533567, guid: a78548acae04fe74e8b425f21aaddb8e, type: 3}
+    - {fileID: 428731772, guid: a78548acae04fe74e8b425f21aaddb8e, type: 3}
+    - {fileID: -494353244, guid: a78548acae04fe74e8b425f21aaddb8e, type: 3}
+    - {fileID: 1776714720, guid: a78548acae04fe74e8b425f21aaddb8e, type: 3}
+    - {fileID: -747885328, guid: a78548acae04fe74e8b425f21aaddb8e, type: 3}
+    - {fileID: 1261817034, guid: a78548acae04fe74e8b425f21aaddb8e, type: 3}
+    - {fileID: -1877752736, guid: a78548acae04fe74e8b425f21aaddb8e, type: 3}
+    SpriteAnimationType: 1

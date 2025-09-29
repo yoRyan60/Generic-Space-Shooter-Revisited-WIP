@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8019038293047209015}
   - component: {fileID: 511905228035230226}
-  - component: {fileID: 2807476646281117764}
+  - component: {fileID: 3519031827856984109}
   m_Layer: 0
   m_Name: AttackRange
   m_TagString: EnemyAttackRange
@@ -68,7 +68,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -1}
   serializedVersion: 2
   m_Radius: 1
---- !u!114 &2807476646281117764
+--- !u!114 &3519031827856984109
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -80,6 +80,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 965ce5b5d1b533b4b8ad1c08080f3ca9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 8929660836055201885}
+  enemyAttackRange: {fileID: 511905228035230226}
 --- !u!1 &1111762228279857075
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,6 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 8929660836055201885}
+  enemyHitbox: {fileID: 3955570959677718380}
 --- !u!1 &4929286633925551846
 GameObject:
   m_ObjectHideFlags: 0

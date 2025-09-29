@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class PlayerBullet : MonoBehaviour
+public class EnemyBullet : MonoBehaviour
 {
     //Retrieve object pool methods for handling spawning and despawning.
-    public IObjectPool<PlayerBullet> objectPool;
-    public IObjectPool<PlayerBullet> ObjectPool { set => objectPool = value; }
-    [SerializeField] float bulletSpeed = 4.5f;
-    [SerializeField] float despawnTime = 1f;
+    public IObjectPool<EnemyBullet> objectPool;
+    public IObjectPool<EnemyBullet> ObjectPool { set => objectPool = value; }
+    [SerializeField] float bulletSpeed = 3f;
+    [SerializeField] float despawnTime = 1.5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,14 +21,16 @@ public class PlayerBullet : MonoBehaviour
     void Update()
     {
         despawnTime -= Time.deltaTime;
-        transform.position += new Vector3(0, bulletSpeed * Time.deltaTime, 0);
+        transform.position += new Vector3(0, -bulletSpeed * Time.deltaTime, 0);
         if(despawnTime <= 0){
-            objectPool.Release(this);
             ResetBullet();
+            objectPool.Release(this);
         }
     }
-
+    public void fireBullet(){
+        objectPool.Get();
+    }
     public void ResetBullet(){
-        despawnTime = 1f;
+        despawnTime = 1.5f;
     }
 }

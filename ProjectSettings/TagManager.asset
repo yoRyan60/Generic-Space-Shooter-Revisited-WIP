@@ -13,6 +13,7 @@ TagManager:
   - PlayerBulletHitbox
   - EnemySpawner(Pinpoint)
   - EnemySpawner(Spinner)
+  - EnemyBulletSpawner
   layers:
   - Default
   - TransparentFX

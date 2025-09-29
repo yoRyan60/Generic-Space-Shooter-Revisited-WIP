@@ -1,16 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Pool;
 
-public class InHitboxCheck : MonoBehaviour
+public class InHitboxCheck_Enemy_Pinpoint : MonoBehaviour
 {
     public GameObject PlayerTarget { get; set; }
-    [SerializeField] private Enemy_Spinner enemy;
+    [SerializeField] private Enemy_Pinpoint enemy;
+    [SerializeField] private Collider2D enemyHitbox;
 
     private void Awake(){
         PlayerTarget = GameObject.FindGameObjectWithTag("Player");
-        //enemy = GetComponentInParent<Enemy>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision){
@@ -19,6 +18,15 @@ public class InHitboxCheck : MonoBehaviour
         }
         if(collision.gameObject.CompareTag("PlayerBulletHitbox")){
             StartCoroutine(TakeDamage());
+        }
+
+        if (collision.gameObject.CompareTag("LeftBoundary")) {
+            enemy.strafeLeft = false;
+            enemy.strafeRight = true;
+        }
+        if (collision.gameObject.CompareTag("RightBoundary")) {
+            enemy.strafeLeft = true;
+            enemy.strafeRight = false;
         }
     }
 
@@ -34,5 +42,15 @@ public class InHitboxCheck : MonoBehaviour
         enemy.objectPool.Release(enemy);
         enemy.ResetEnemy();
         enemy.StateMachine.ChangeState(enemy.IdleState);
+    }
+
+    public IEnumerator EnableHitbox(){
+        yield return new WaitForSeconds(1.5f);
+        enemyHitbox.enabled = true;
+    }
+
+    void OnEnable(){
+        enemyHitbox.enabled = false;
+        StartCoroutine(EnableHitbox());
     }
 }

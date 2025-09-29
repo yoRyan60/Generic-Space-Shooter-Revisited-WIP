@@ -1,23 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
+using GabrielBigardi.SpriteAnimator;
 
-public class Enemy_SpinnerIdleState : Enemy_SpinnerState
+public class Enemy_PinpointIdleState : Enemy_PinpointState
 {
-    public Enemy_SpinnerIdleState(Enemy_Spinner enemy, Enemy_SpinnerStateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
+    SpriteAnimator enemyAnimator;
+    public Enemy_PinpointIdleState(Enemy_Pinpoint enemy, Enemy_PinpointStateMachine enemyStateMachine) : base(enemy, enemyStateMachine)
     {
-        
-    }
 
-    /*public override void AnimationTriggerEvent(Enemy_Spinner.AnimationTriggerType triggerType)
-    {
-        base.AnimationTriggerEvent(triggerType);
-    }*/
+    }
 
     public override void EnterState()
     {
         base.EnterState();
-        enemy.ResetEnemy();
     }
 
     public override void ExitState()
@@ -31,8 +28,10 @@ public class Enemy_SpinnerIdleState : Enemy_SpinnerState
         if(enemy.move){
             enemy.transform.position += new Vector3(0, -enemy.enemyMovementSpeed * Time.deltaTime, 0);
         }
-        if(enemy.IsInAttackRange){
-            enemy.StateMachine.ChangeState(enemy.AttackState);
+        if(enemy.travelTimer <= 0){
+            enemy.move = false;
+            enemy.PreparetoAttack();
+            enemy.StateMachine.ChangeState(enemy.AlertState);
         }
     }
 

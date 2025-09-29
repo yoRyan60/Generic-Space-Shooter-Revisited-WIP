@@ -13,7 +13,7 @@ public class Enemy_Spinner: MonoBehaviour, ITriggerCheckable
     #region Enemy parameters and SpriteAnimator
     public SpriteAnimator enemyAnimator; //Using the custom sprite animator.
     [SerializeField] public bool move = false;
-    [SerializeField] public float enemyMovementSpeed = 2f;
+    [SerializeField] public float enemyMovementSpeed = 3f;
     [SerializeField] private float despawnTimer = 3f;
     #endregion
     
@@ -66,6 +66,7 @@ public class Enemy_Spinner: MonoBehaviour, ITriggerCheckable
     private void FixedUpdate(){
         StateMachine.CurrentEnemyState.PhysicsUpdate();
     }
+
     public void ResetEnemy() //Whenever the enemy dies or it's despawn time reaches 0.
     {
         enemyAnimator.Play("Idle");
@@ -78,9 +79,6 @@ public class Enemy_Spinner: MonoBehaviour, ITriggerCheckable
     IEnumerator WindUp() {
         enemyAnimator.Play("Prepare");
         yield return new WaitForSeconds(1f);
-    }
-    public void Alerted() {
-        StartCoroutine(WindUp());
     }
 
     public void Attack(){

@@ -1,15 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
-
-public class Enemy_SpinnerState
+public class Enemy_PinpointState
 {
-    protected Enemy_Spinner enemy;
-    protected Enemy_SpinnerStateMachine enemyStateMachine;
+    protected Enemy_Pinpoint enemy;
+    protected Enemy_PinpointStateMachine enemyStateMachine;
 
-    public Enemy_SpinnerState(Enemy_Spinner enemy, Enemy_SpinnerStateMachine enemyStateMachine){
+    public Enemy_PinpointState(Enemy_Pinpoint enemy, Enemy_PinpointStateMachine enemyStateMachine){
         this.enemy = enemy;
         this.enemyStateMachine = enemyStateMachine;
     }
@@ -30,7 +28,7 @@ public class Enemy_SpinnerState
 
     }
 
-    /*public virtual void AnimationTriggerEvent(Enemy_Spinner.AnimationTriggerType triggerType){
+    /*public virtual void AnimationTriggerEvent(Enemy_Pinpoint.AnimationTriggerType triggerType){
 
     }*/
 }
